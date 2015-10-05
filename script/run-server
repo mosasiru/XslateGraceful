@@ -1,0 +1,19 @@
+#!/bin/bash
+
+set -e
+
+  #XSLATE=dump=load,save_src 
+EXEC_COMMAND="
+env 
+  plackup -E ${PLACK_ENV:-production} -s Starlet app.psgi
+        --spawn-interval     ${SPAWN_INTERVAL:-100}
+        --max-workers        ${MAX_WORKERS:-3}
+        --timeout            ${TIMEOUT:-60}
+        --max-reqs-per-child ${MAX_REQUESTS_PER_CHILD:-10000}
+        --min-reqs-per-child ${MIN_REQUESTS_PER_CHILD:-8000}
+        --keepalive-timeout  ${KEEPALIVE_TIMEOUT:-2}
+        --max-keepalive-reqs ${MAX_KEEPALIVE_REQUESTS:-1}
+"
+
+echo $EXEC_COMMAND
+exec $EXEC_COMMAND

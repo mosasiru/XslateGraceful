@@ -1,0 +1,4 @@
+name = "XslateGraceful"
+# badges = ["travis"]
+module_maker="ModuleBuildTiny"
+

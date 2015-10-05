@@ -1,0 +1,7 @@
+#!/bin/bash
+
+set -e
+COMMAND="start_server --port=${PORT:-3000} --signal-on-hup USR1 -- ./script/run-server"
+
+exec 2>&1
+${COMMAND}
