@@ -6,16 +6,19 @@ use warnings;
 our $VERSION = "0.01";
 
 use Text::Xslate;
-use ViewFunctions;
+use JSON::XS;
 
 sub run {
     my ($self) = @_;
 
     my $view = Text::Xslate->new(
         syntax   => 'Kolon',
-        module   => [ 'ViewFunctions' ],
-        function => { },
         cache    => 1,
+        function => {
+            json => sub {
+                JSON::XS->new->utf8->encode(@_);
+            }
+        },
     );
 
     sub {
@@ -24,7 +27,7 @@ sub run {
         return [
             200,
             [],
-            [ $view->render('tmpl/hoge.tmpl', {a => { b => 1 }}) ]
+            [ $view->render('tmpl/hoge.tmpl', {a => ["restarted"] }) ]
         ]
     }
 

@@ -1,10 +1,14 @@
 # NAME
 
-XslateGraceful - It's new $module
+XslateGraceful - test Xslate cache level 1 when graceful restart using server starter
 
 # SYNOPSIS
 
-    use XslateGraceful;
+  ./run
+  curl localhost:3000
+  # hello world
+
+
 
 # DESCRIPTION
 
