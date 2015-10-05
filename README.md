@@ -34,4 +34,4 @@ it under the same terms as Perl itself.
 
 # AUTHOR
 
-yusuke-enomoto <yusuke.enomoto@dena.com>
+mosa (mosaafi@gmail.com)
